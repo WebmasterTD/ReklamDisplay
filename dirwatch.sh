@@ -1,6 +1,6 @@
 #!/bin/bash
 
-fbi -noverbose -a -t 5 /home/pi/Reklama/*
+fbi -noverbose -a -t 12 /home/pi/Reklama/*
 
 while true; do
 
@@ -9,6 +9,6 @@ sleep 15
 p=`pidof fbi`
 kill $p
 
-fbi -noverbose -a -t 5 /home/pi/Reklama/*
+fbi -noverbose -a -t 12 /home/pi/Reklama/*
 
 done

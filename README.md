@@ -1,6 +1,7 @@
 # Instructions
 Image slideshow on Raspberry Pi Zero
 ## 1. Burn Raspbian lite to SD card & configure
+* Create `wpa_supplicant.conf` and `ssh` file in `/boot` if setting up without keyboard / headless.
 
 `sudo raspi-config`
 
@@ -55,9 +56,18 @@ Add this to the very end of the file:   `. /home/pi/dirwatch.sh`
 
 Copy contents of `dirwatch.sh` to RPi
 ## 4. Set up safe shutdown
-TO DO...
+Copy `shutdown.py` to `/home` directory
+
+Add: `python /home/pi/shutdown.sh &` to `/etc/rc.local`
+
+Make this circuit:
+![Soft Shutdown circuit](/SoftShutdown/SoftShutdown.svg)
+
+Connect the signal wire to Raspberry GPIO14 pin.
 
 ## Accessing samba share from Windows:
-`This PC > Add a network location > [HOSTNAME].local`
+* Must be in the same network:
 
-`[HOSTNAME].local` in my case: `REKLAMA.local`
+`This PC > Add a network location > \\[HOSTNAME].local\Reklama`
+
+in my case: `\\REKLAMA.local\Reklama`
